@@ -4,6 +4,7 @@ package org.launchcode.finalproject.models;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.HashMap;
 
 
 public class SalesRepModel {
@@ -19,5 +20,8 @@ public class SalesRepModel {
     @NotNull
     @Size(min = 2, max = 15)
     private String lastName;
+
+    @NotNull
+    private HashMap salesRepHours;
 
 }
