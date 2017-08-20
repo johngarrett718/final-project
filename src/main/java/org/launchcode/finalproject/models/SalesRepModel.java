@@ -22,6 +22,6 @@ public class SalesRepModel {
     private String lastName;
 
     @NotNull
-    private HashMap salesRepHours;
+    private double salesRepHours;
 
 }

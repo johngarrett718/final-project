@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.or/">
+
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <title th:text="${title}">Temporary Title</title>
+</head>
+
+<body>
+    <nav th:fragment="navigation">
+        <a href="/">Home</a>
+        <a href="/salesRep">Sales Rep</a>
+        <a href="/client">Client</a>
+        <a href="/sale">Sale</a>
+    </nav>
+</body>
+</html>
