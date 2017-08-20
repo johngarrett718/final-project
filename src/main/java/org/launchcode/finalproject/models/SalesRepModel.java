@@ -1,12 +1,10 @@
 package org.launchcode.finalproject.models;
 
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.HashMap;
 
-
+@Entity
 public class SalesRepModel {
 
     @Id
