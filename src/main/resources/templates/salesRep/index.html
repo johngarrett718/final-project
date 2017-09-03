@@ -1,8 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="www.thymeleaf.or/">
+<html lang="en" xmlns:th="www.thymeleaf.org/">
 
 <head th:replace="fragment :: head"></head>
+
 <body>
+<h1 th:text="${title}">Temporary Title</h1>
+
+<nav th:replace="fragment :: navigation">
+    <a href="/salesrep/add">Add a Sales Rep</a>
+</nav>
 
 </body>
 </html>

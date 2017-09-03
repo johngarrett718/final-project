@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html lang="en" xmlns:th="www.thymeleaf.org/">
 
+<head th:replace="fragment :: head"></head>
+
+<body>
+<h1 th:text="${title}">Temporary Title</h1>
+
+<nav th:replace="fragment :: navigation"></nav>
+<form method="post">
+    <label th:for="name">Name of Sales Rep</label>
+    <input class="form-control" th:field="*{name}"/>
+    <span th:errors="*{name}" class="error"/>
+    <input type="submit" value="Add a Sales Rep"/>
+</form>
 </body>
 </html>
+

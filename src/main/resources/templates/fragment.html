@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="www.thymeleaf.or/">
+<html lang="en" xmlns:th="www.thymeleaf.org/">
 
 <head th:fragment="head">
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title th:text="${title}">Temporary Title</title>
-</head>
 
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />-->
+    <!--<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+</head>
 <body>
     <nav th:fragment="navigation">
-        <a href="/">Home</a>
         <a href="/salesRep">Sales Rep</a>
         <a href="/client">Client</a>
         <a href="/sale">Sale</a>
