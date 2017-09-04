@@ -7,6 +7,9 @@ import javax.validation.constraints.Size;
 @Entity
 public class SalesRepModel {
 
+    public SalesRepModel() {
+    }
+
     @Id
     @GeneratedValue
     private int id;
@@ -19,7 +22,31 @@ public class SalesRepModel {
     @Size(min = 2, max = 15)
     private String lastName;
 
-    @NotNull
-    private double salesRepHours;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+
 
 }

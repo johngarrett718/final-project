@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
 
-
 @Controller
 @RequestMapping("salesrep")
 public class SalesRepController {
@@ -21,21 +20,30 @@ public class SalesRepController {
 
     @RequestMapping(value = "")
     public String index(Model model) {
-//        model.addAttribute("salesrep", salesrepDao.findAll());
+
+        model.addAttribute("salesrep", salesrepDao.findAll());
         model.addAttribute("title", "Sales Reps");
 
         return "salesrep/index";
 
     }
 
+    @RequestMapping(value="add", method = RequestMethod.GET)
+    public String add(Model model) {
+        model.addAttribute(new SalesRepModel());
+        model.addAttribute("title", "Add a Sales Rep");
+
+        return "salesrep/add";
+    }
+
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String add(Model model, @ModelAttribute @Valid
-            SalesRepModel salesRep, Errors error) {
+            SalesRepModel salesrep, Errors error) {
         if (error.hasErrors()) {
             model.addAttribute("title", "Add a Sales Rep");
             return "salesrep/add";
         }
-        salesrepDao.save(salesRep);
+        salesrepDao.save(salesrep);
         return "redirect:";
     }
 }
