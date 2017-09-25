@@ -30,15 +30,15 @@ public class SalesRepController {
 
     @RequestMapping(value="add", method = RequestMethod.GET)
     public String add(Model model) {
-        model.addAttribute(new SalesRepModel());
+        model.addAttribute("salesrep", new SalesRepModel());
         model.addAttribute("title", "Add a Sales Rep");
 
         return "salesrep/add";
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String add(Model model, @ModelAttribute @Valid
-            SalesRepModel salesrep, Errors error) {
+    public String add(Model model,
+                      @ModelAttribute @Valid SalesRepModel salesrep, Errors error) {
         if (error.hasErrors()) {
             model.addAttribute("title", "Add a Sales Rep");
             return "salesrep/add";

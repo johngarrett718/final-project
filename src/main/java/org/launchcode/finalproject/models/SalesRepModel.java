@@ -8,6 +8,7 @@ import javax.validation.constraints.Size;
 public class SalesRepModel {
 
     public SalesRepModel() {
+        salesRepHours = 0;
     }
 
     @Id
@@ -21,6 +22,10 @@ public class SalesRepModel {
     @NotNull
     @Size(min = 2, max = 15)
     private String lastName;
+
+    @NotNull
+    private double salesRepHours;
+
 
 
     public int getId() {
