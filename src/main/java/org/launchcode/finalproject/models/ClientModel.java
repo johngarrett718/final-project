@@ -34,46 +34,24 @@ public class ClientModel{
     private double hours;
 
 
-    public int getId() {
-        return id;
-    }
+    public int getId() { return id; }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public void setId(int id) { this.id = id; }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public void setName(String name) { this.name = name; }
 
-    public String getCity() {
-        return city;
-    }
+    public String getCity() { return city; }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
+    public void setCity(String city) { this.city = city; }
 
-    public String getState() {
-        return state;
-    }
+    public String getState() { return state; }
 
-    public void setState(String state) {
-        this.state = state;
-    }
+    public void setState(String state) { this.state = state; }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
+    public String getPhoneNumber() { return phoneNumber; }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-
+    public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
 
 }

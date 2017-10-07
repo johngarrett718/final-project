@@ -26,4 +26,24 @@ public class SaleModel {
     @NotNull
     private double hoursSold;
 
+    public int getId() { return id; }
+
+    public void setId(int id) { this.id = id; }
+
+    public String getFirstContact() { return firstContact; }
+
+    public void setFirstContact(String firstContact) { this.firstContact = firstContact; }
+
+    public String getClose() { return close; }
+
+    public void setClose(String close) { this.close = close; }
+
+    public String getClientName() { return clientName; }
+
+    public void setClientName(String clientName) { this.clientName = clientName; }
+
+    public double getHoursSold() { return hoursSold; }
+
+    public void setHoursSold(double hoursSold) { this.hoursSold = hoursSold; }
+
 }

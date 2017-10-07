@@ -1,4 +1,52 @@
 package org.launchcode.finalproject.controllers;
 
+import org.launchcode.finalproject.models.SaleModel;
+import org.launchcode.finalproject.models.data.SaleDao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.validation.Valid;
+
+@Controller
+@RequestMapping
 public class SaleController {
+    @Autowired
+    private SaleDao saleDao;
+
+    @RequestMapping(value = "")
+    public String index(Model model){
+
+        model.addAttribute("sale", saleDao.findAll());
+        model.addAttribute("title", "Sales");
+
+        return "sales/index";
+
+    }
+
+    @RequestMapping(value="add", method= RequestMethod.GET)
+    public String add(Model model){
+
+        model.addAttribute("sale", new SaleModel());
+        model.addAttribute("title", "Add a Sale");
+
+        return "sale/add";
+
+    }
+
+    @RequestMapping(value="add", method=RequestMethod.POST)
+    public String add(Model model,
+                      @ModelAttribute @Valid SaleModel sale, Errors error){
+        if (error.hasErrors()){
+            model.addAttribute("title","Add a Sale");
+            return "sale/add";
+        }
+        saleDao.save(sale);
+        return "redirect:";
+
+    }
 }
