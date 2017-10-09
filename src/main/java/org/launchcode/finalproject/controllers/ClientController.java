@@ -22,7 +22,7 @@ public class ClientController {
     @RequestMapping(value = "")
     public String index(Model model){
 
-        model.addAttribute("client", clientDao.findAll());
+        model.addAttribute("clients", clientDao.findAll());
         model.addAttribute("title", "Clients");
 
         return "client/index";

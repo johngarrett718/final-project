@@ -21,7 +21,7 @@ public class SalesRepController {
     @RequestMapping(value = "")
     public String index(Model model) {
 
-        model.addAttribute("salesrep", salesrepDao.findAll());
+        model.addAttribute("salesreps", salesrepDao.findAll());
         model.addAttribute("title", "Sales Reps");
 
         return "salesrep/index";

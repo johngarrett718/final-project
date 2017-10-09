@@ -9,17 +9,17 @@
 <table class="table">
 
     <tr>
-        <th>Sales Rep</th>
+        <th>Clients</th>
     </tr>
 
-    <tr th:each="salesrep : ${salesreps}">
-        <td th:text="${salesrep.firstName}+ ${salesrep.lastName}"></td>
+    <tr th:each="client : ${clients}">
+        <td th:text="${client.name}"></td>
     </tr>
 
 </table>
 
 <nav th:replace="fragment :: navigation">
-    <a href="/salesrep/add">Add a Sales Rep</a>
+    <a href="/client/add">Add a Client</a>
 </nav>
 
 </body>
