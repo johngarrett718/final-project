@@ -12,16 +12,14 @@ public class SaleModel {
     private int id;
 
     @NotNull
-    @Size(min=5, max=30)
-    private String firstContact;
+    private SalesRepModel firstContact;
+
+    @NotNull
+    private SalesRepModel closer;
 
     @NotNull
     @Size(min=5, max=30)
-    private String close;
-
-    @NotNull
-    @Size(min=5, max=30)
-    private String clientName;
+    private ClientModel client;
 
     @NotNull
     private double hoursSold;
@@ -30,17 +28,17 @@ public class SaleModel {
 
     public void setId(int id) { this.id = id; }
 
-    public String getFirstContact() { return firstContact; }
+    public SalesRepModel getFirstContact() { return firstContact; }
 
-    public void setFirstContact(String firstContact) { this.firstContact = firstContact; }
+    public void setFirstContact(SalesRepModel firstContact) { this.firstContact = firstContact; }
 
-    public String getClose() { return close; }
+    public SalesRepModel getCloser() { return closer; }
 
-    public void setClose(String close) { this.close = close; }
+    public void setCloser(SalesRepModel closer) { this.closer = closer; }
 
-    public String getClientName() { return clientName; }
+    public ClientModel getClient() { return client; }
 
-    public void setClientName(String clientName) { this.clientName = clientName; }
+    public void setClient(ClientModel client) { this.client = client; }
 
     public double getHoursSold() { return hoursSold; }
 
