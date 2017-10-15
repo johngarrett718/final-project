@@ -41,6 +41,7 @@ public class SalesRepController {
     public String add(Model model,
                       @ModelAttribute @Valid SalesRepModel salesrep, Errors error) {
         if (error.hasErrors()) {
+            model.addAttribute("salesrep", new SalesRepModel());
             model.addAttribute("title", "Add a Sales Rep");
             return "salesrep/add";
         }

@@ -42,6 +42,7 @@ public class ClientController {
     public String add(Model model,
                       @ModelAttribute @Valid ClientModel client, Errors error) {
         if (error.hasErrors()) {
+            model.addAttribute("client", new ClientModel());
             model.addAttribute("title", "Add a Client");
             return "client/add";
         }
