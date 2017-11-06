@@ -1,7 +1,9 @@
 package org.launchcode.finalproject.controllers;
 
 import org.launchcode.finalproject.models.SaleModel;
+import org.launchcode.finalproject.models.data.ClientDao;
 import org.launchcode.finalproject.models.data.SaleDao;
+import org.launchcode.finalproject.models.data.SalesRepDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,10 +15,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping
+@RequestMapping("sale")
 public class SaleController {
     @Autowired
     private SaleDao saleDao;
+
+    @Autowired
+    private ClientDao clientDao;
+
+    @Autowired
+    private SalesRepDao salesRepDao;
 
     @RequestMapping(value = "")
     public String index(Model model){
@@ -24,7 +32,7 @@ public class SaleController {
         model.addAttribute("sale", saleDao.findAll());
         model.addAttribute("title", "Sales");
 
-        return "sales/index";
+        return "sale/index";
 
     }
 
@@ -33,6 +41,10 @@ public class SaleController {
 
         model.addAttribute("sale", new SaleModel());
         model.addAttribute("title", "Add a Sale");
+        model.addAttribute("clients", clientDao.findAll());
+        model.addAttribute("salesReps", salesRepDao.findAll());
+
+
 
         return "sale/add";
 

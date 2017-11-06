@@ -12,17 +12,23 @@ public class SaleModel {
     private int id;
 
     @NotNull
+    @ManyToOne
     private SalesRepModel firstContact;
 
     @NotNull
+    @ManyToOne
     private SalesRepModel closer;
 
     @NotNull
-    @Size(min=5, max=30)
+    @ManyToOne
     private ClientModel client;
 
     @NotNull
     private double hoursSold;
+
+    public SaleModel(){
+
+    }
 
     public int getId() { return id; }
 

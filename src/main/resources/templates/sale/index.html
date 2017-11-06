@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org/">
+
+<head th:replace="fragment :: head"></head>
+
+<body>
+<h1 th:text="${title}">Temporary Title</h1>
+
+<table class="table">
+
+    <tr>
+        <th>Sales</th>
+    </tr>
+
+    <tr th:each="sale : ${sales}">
+        <td th:text="${sale.client.name} + ' ' + ${sale.firstContact.firstName} + ' '
+        + ${sale.closer.firstName}"></td>
+    </tr>
+
+</table>
+
+<nav th:replace="fragment :: navigation">
+    <a href="/salesrep/add">Add a Sales Rep</a>
+</nav>
+
+</body>
+</html>
