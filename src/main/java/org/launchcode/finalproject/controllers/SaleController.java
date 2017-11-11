@@ -29,7 +29,7 @@ public class SaleController {
     @RequestMapping(value = "")
     public String index(Model model){
 
-        model.addAttribute("sale", saleDao.findAll());
+        model.addAttribute("sales", saleDao.findAll());
         model.addAttribute("title", "Sales");
 
         return "sale/index";
@@ -54,7 +54,10 @@ public class SaleController {
     public String add(Model model,
                       @ModelAttribute @Valid SaleModel sale, Errors error){
         if (error.hasErrors()){
-            model.addAttribute("title","Add a Sale");
+            model.addAttribute("sale", new SaleModel());
+            model.addAttribute("title", "Add a Sale");
+            model.addAttribute("clients", clientDao.findAll());
+            model.addAttribute("salesReps", salesRepDao.findAll());
             return "sale/add";
         }
         saleDao.save(sale);
