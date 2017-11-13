@@ -60,8 +60,21 @@ public class SaleController {
             model.addAttribute("salesReps", salesRepDao.findAll());
             return "sale/add";
         }
+        double hours = sale.getHoursSold();
+        double currentHours = sale.getClient().getHours();
+        sale.getClient().setHours(hours + currentHours);
+
+        //TODO Update First Contact
+        currentHours = sale.getFirstContact().getSalesRepHours();
+        sale.getFirstContact().setSalesRepHours(.65 * hours + currentHours);
+
+        //TODO Update Closer
+
+        currentHours = sale.getCloser().getSalesRepHours();
+        sale.getCloser().setSalesRepHours(.35 * hours + currentHours);
+
+
         saleDao.save(sale);
         return "redirect:";
-
     }
 }

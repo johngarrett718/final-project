@@ -15,8 +15,8 @@
     </div>
 
     <div class="form-group">
-        <label th:for="client">Client</label>
-        <select name="clientId">
+        <label th:for="clientId">Client</label>
+        <select name="client">
             <option th:each="client : ${clients}"
                     th:text="${client.name}"
                     th:value="${client.id}"></option>
@@ -32,8 +32,8 @@
         </select>
     </div>
     <div class="form-group">
-        <label th:for="closer">Closer</label>
-        <select name="closerId">
+        <label th:for="closerId">Closer</label>
+        <select name="closer">
             <option th:each="salesRep : ${salesReps}"
                     th:text="${salesRep.firstName}+ ' ' + ${salesRep.lastName}"
                     th:value="${salesRep.id}"></option>

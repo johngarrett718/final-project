@@ -30,6 +30,8 @@ public class ClientModel{
     @Size(min=10, max=10)
     private String phoneNumber;
 
+
+
     @NotNull
     private double hours;
 
@@ -54,4 +56,7 @@ public class ClientModel{
 
     public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
 
+    public double getHours() {return hours; }
+
+    public void setHours(double hours) {this.hours = hours; }
 }

@@ -23,6 +23,8 @@ public class SalesRepModel {
     @Size(min = 2, max = 15)
     private String lastName;
 
+
+
     @NotNull
     private double salesRepHours;
 
@@ -49,5 +51,9 @@ public class SalesRepModel {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+    public double getSalesRepHours() {return salesRepHours; }
+
+    public void setSalesRepHours(double salesRepHours) {this.salesRepHours = salesRepHours; }
 
 }
