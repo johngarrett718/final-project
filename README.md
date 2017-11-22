@@ -22,9 +22,4 @@ Monthly Sales Table - A table row with all of the sales representatives, and cou
                       There wil be a total off all sales for each sales rep. 
                     
 ## Technologies
-Java
-MySQL
-HTML
-CSS
-Spring
-Thymeleaf
+Java, MySQL, HTML, CSS, Spring, Thymeleaf
