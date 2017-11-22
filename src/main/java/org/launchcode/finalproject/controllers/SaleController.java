@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 
 @Controller
 @RequestMapping("sale")
@@ -44,6 +45,19 @@ public class SaleController {
         model.addAttribute("clients", clientDao.findAll());
         model.addAttribute("salesReps", salesRepDao.findAll());
 
+        ArrayList months = new ArrayList();
+        for(Integer i=1; i<13; i++){
+            months.add(i);
+        }
+        model.addAttribute("months", months);
+
+        ArrayList days = new ArrayList();
+        for(Integer i=1; i<32; i++){
+            days.add(i);
+        }
+        model.addAttribute("days", days);
+
+
 
 
         return "sale/add";
@@ -60,6 +74,7 @@ public class SaleController {
             model.addAttribute("salesReps", salesRepDao.findAll());
             return "sale/add";
         }
+
         double hours = sale.getHoursSold();
         double currentHours = sale.getClient().getHours();
         sale.getClient().setHours(hours + currentHours);
@@ -69,10 +84,10 @@ public class SaleController {
         sale.getFirstContact().setSalesRepHours(.65 * hours + currentHours);
 
         //TODO Update Closer
-
         currentHours = sale.getCloser().getSalesRepHours();
         sale.getCloser().setSalesRepHours(.35 * hours + currentHours);
 
+        //TODO Check for Valid day of Month
 
         saleDao.save(sale);
         return "redirect:";

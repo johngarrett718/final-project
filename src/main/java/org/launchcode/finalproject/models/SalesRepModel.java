@@ -24,9 +24,13 @@ public class SalesRepModel {
     private String lastName;
 
 
-
     @NotNull
     private double salesRepHours;
+
+    //TODO #1 Create a Nested Hashmap Keys for outer is months, key for inner is days
+    public void addSale(String month, String day, double hours){
+        //TODO #2
+    }
 
 
 

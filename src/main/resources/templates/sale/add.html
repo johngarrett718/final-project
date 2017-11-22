@@ -39,6 +39,24 @@
                     th:value="${salesRep.id}"></option>
         </select>
     </div>
+
+    <div class="form-group">
+        <label th:for="month">Month</label>
+        <select name="month">
+            <option th:each="month : ${months}"
+                    th:text="${month}"
+                    th:value="${month}"></option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label th:for="day">Day</label>
+        <select name="day">
+            <option th:each="day : ${days}"
+                    th:text="${day}"
+                    th:value="${day}"></option>
+        </select>
+    </div>
     <input type="submit" value="Add a Sale" />
 </form>
 </body>
