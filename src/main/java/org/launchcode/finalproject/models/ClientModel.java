@@ -30,6 +30,8 @@ public class ClientModel{
     @Size(min=10, max=10)
     private String phoneNumber;
 
+    @NotNull
+    private String email;
 
 
     @NotNull
@@ -55,6 +57,10 @@ public class ClientModel{
     public String getPhoneNumber() { return phoneNumber; }
 
     public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
+
+    public String getEmail() { return email; }
+
+    public void setEmail(String email) { this.email = email; }
 
     public double getHours() {return hours; }
 
