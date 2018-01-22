@@ -39,14 +39,18 @@ public class CreateDataController {
     @RequestMapping(method = RequestMethod.POST)
     public String postdata(Model model) throws IOException {
         Reader in = new FileReader("/Users/johng/Desktop/Client.csv");
-        Iterable<CSVRecord> records = CSVFormat.EXCEL.parse(in);
+        Iterable<CSVRecord> records = CSVFormat.EXCEL.withHeader().parse(in);
         for (CSVRecord client : records) {
 
             ClientModel newClient = new ClientModel();
             newClient.setName(client.get("name"));
             newClient.setCity(client.get("city"));
             newClient.setState(client.get("state"));
-            newClient.setPhoneNumber(client.get("phone"));
+
+            String phoneNumber = client.get("phone");
+            phoneNumber = phoneNumber.substring(0, 3) + phoneNumber.substring(4, 7)
+                    + phoneNumber.substring(8);
+            newClient.setPhoneNumber(phoneNumber);
             newClient.setEmail(client.get("email"));
 
             clientDao.save(newClient);
