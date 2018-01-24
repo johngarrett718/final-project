@@ -72,7 +72,7 @@ public class CreateDataController {
         }
         SimpleDateFormat formatter=new SimpleDateFormat("MM-dd-yyyy");
         GregorianCalendar cal=new GregorianCalendar();
-        int year=2013;
+        int year=2017;
         int total=365;
         cal.set(Calendar.YEAR, year);
         if (cal.isLeapYear(year)) {
@@ -82,6 +82,13 @@ public class CreateDataController {
         for(int d=1; d<=total; d++) {
             cal.set(Calendar.DAY_OF_YEAR, d);
             Date date = cal.getTime();
+            int month = cal.get(Calendar.MONTH);
+            int day = cal.get(Calendar.DAY_OF_MONTH);
+
+            //Loop over all customers
+            //Inside loop: randomly decide if customer made a purchase
+            //if they did, randomnly decide how many hours
+            //randomnly decide a first contact and closer
         }
 
         return "redirect:";
