@@ -59,7 +59,7 @@ public class CreateDataController {
 
             clientDao.save(newClient);
         }
-        in = new FileReader("Users/johng/Desktop/SalesRep.csv");
+        in = new FileReader("/Users/johng/Desktop/SalesRep.csv");
         records = CSVFormat.EXCEL.withHeader().parse(in);
         for (CSVRecord salesrep : records) {
             SalesRepModel newSalesRep = new SalesRepModel();
