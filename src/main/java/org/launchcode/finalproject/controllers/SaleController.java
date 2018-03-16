@@ -11,9 +11,12 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 
 @Controller
 @RequestMapping("sale")
@@ -32,9 +35,32 @@ public class SaleController {
 
         model.addAttribute("sales", saleDao.findAll());
         model.addAttribute("title", "Sales");
-
         return "sale/index";
+    }
+    @RequestMapping(value = "view", method = RequestMethod.POST)
+    public String view(@RequestParam int month, @RequestParam int year, Model model){
+        //Use SaleDao to find all sales
+//        Iterable <SalesRepModel> salesReps = salesRepDao.findAll();
+//        ArrayList <SalesRepModel> repList = new ArrayList<SalesRepModel>();
+//        for (SalesRepModel salesRep: salesReps) {
+//            repList.add(salesRep);
+//
+//        }
+        Iterable <SaleModel> sales = saleDao.findAll();
+        //Create a new empoty collection
+        ArrayList<SaleModel> salesList = new ArrayList<SaleModel>();
 
+        //Iterate over all sales
+        for (SaleModel sale: sales){
+            //Add to empty collection if they meet our criteria
+            //TODO Need to add year to sale
+            if (month==sale.getMonth()){
+                salesList.add(sale);
+        }
+        }
+        //Attach collection to the model
+        model.addAttribute("salesList", salesList);
+        return "sale/view";
     }
 
     @RequestMapping(value="add", method= RequestMethod.GET)

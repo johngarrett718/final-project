@@ -2,9 +2,46 @@
 <html lang="en" xmlns:th="www.thymeleaf.org/">
 
 <head th:replace="fragment :: head"></head>
-
 <body>
 <h1 th:text="${title}">Temporary Title</h1>
+<form method="post">
+    <label>Month</label>
+    <select name="month">
+        <option th:text="January"
+                th:value="1"></option>
+        <option th:text="February"
+                th:value="2"></option>
+        <option th:text="March"
+                th:value="3"></option>
+        <option th:text="April"
+                th:value="4"></option>
+        <option th:text="May"
+                th:value="5"></option>
+        <option th:text="June"
+                th:value="6"></option>
+        <option th:text="July"
+                th:value="7"></option>
+        <option th:text="August"
+                th:value="8"></option>
+        <option th:text="September"
+                th:value="9"></option>
+        <option th:text="October"
+                th:value="10"></option>
+        <option th:text="Novemebr"
+                th:value="11"></option>
+        <option th:text="December"
+                th:value="12"></option>
+    </select>
+
+    <label>Year</label>
+    <select name="year">
+        <option th:text="2017"
+                th:value="2017"></option>
+    </select>
+    <input type="submit" value="Submit"/>
+
+</form>
+
 
 <table class="table">
 
